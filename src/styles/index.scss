@@ -35,6 +35,19 @@ body {
   border: 1vmin dotted $black;
   border-radius: $border-radius;
 
+  &__center-point {
+    position: absolute;
+    height: $center-point;
+    width: $center-point;
+    background-color: $orange;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+
+    transform: translate(-50%, -50%);
+  }
+
   &__minutes {
     position: absolute;
     display: block;
@@ -43,8 +56,15 @@ body {
     background-color: $blue;
     bottom: 50%;
 
+    left: 50%;
+    margin-left: -1.5vmin;
+
     animation: rotate 3600s steps(60) infinite;
     transform-origin: bottom center;
+  }
+
+  &--speed-up &__minutes {
+    animation: rotate 600s steps(60) infinite;
   }
 
   &__seconds {
@@ -54,24 +74,11 @@ body {
     background-color: $green;
     bottom: 50%;
 
+    left: 50%;
+    margin-left: -0.75vmin;
+
     animation: rotate 60s linear infinite;
     transform-origin: bottom center;
-  }
-
-  &__center-point {
-    position: absolute;
-    height: $center-point;
-    width: $center-point;
-    background-color: $orange;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-  }
-
-  &--speed-up &__minutes {
-    animation: rotate 600s steps(60) infinite;
   }
 
   &--speed-up &__seconds {
